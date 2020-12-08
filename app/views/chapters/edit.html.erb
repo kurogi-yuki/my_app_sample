@@ -1,0 +1,9 @@
+<%= form_with model: @chapter, url: { action: :update }, local: true do |f| %>
+  <p>章タイトル：<%= f.text_field :chapter_title, required: true, autofocus: true, placeholder: "プロローグ、第一章など" %></p>
+  <p>内容：<%= f.text_field :content, required: true, autofocus: true, placeholder: "内容" %></p>
+  <div class="form-group">
+    <%= f.label :writing, "執筆状況" %>
+    <%= f.select :writing, [["設定中", "設定中"],["清書中", "清書中"],["編集中", "編集中"],["完了済", "完了済"]], include_blank: '選択してください' %>
+  </div>
+  <%= f.submit "作成" %>
+<% end %>

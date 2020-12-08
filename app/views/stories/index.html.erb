@@ -6,8 +6,7 @@
   <p>ジャンル:<%= story.genre %></p>
   <%= link_to "編集", edit_story_path(story) %>
   <%= link_to "削除", story, method: :delete, data: { confirm: "#{story.title}を削除しますか？" } %>
-  <%= link_to "チャプターリスト", "#" %>
-  <%# story_chapters_path(story) %>
+  <%= link_to "チャプターリスト", story_chapters_path(story) %>
   <%= link_to "キャラクターリスト", "#" %>
   <%# story_characters_path(story) %>
   <hr>

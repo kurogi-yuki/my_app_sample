@@ -1,0 +1,7 @@
+<p>章タイトル：<%= @chapter.chapter_title %></p>
+<p>章内容：<%= @chapter.content %></p>
+<p><%= link_to "編集", edit_story_chapter_path(@chapter.story, @chapter) %></p>
+<p><%= link_to "削除", story_chapter_path(@chapter.story, @chapter), method: :delete, data: { confirm: "#{@chapter.chapter_title}を削除しますか？" } %></p>
+<p>物語タイトル：<%= @chapter.story_title %></p>
+<p>物語のID：<%= @chapter.story_id %></p>
+<p>↓編集ページで選択された登場人物の一覧を表示する</p>

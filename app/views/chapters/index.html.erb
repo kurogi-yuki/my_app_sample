@@ -1,0 +1,15 @@
+<% if @chapters.first %>
+<hr>
+  <h1>物語タイトル<%= @chapters.first.story_title %></h1>
+<% end %>
+<hr>
+<%= link_to "チャプター作成", new_story_chapter_path %>
+<hr>
+<% @chapters.each do |chapter| %>
+<p>チャプタータイトル：<%= chapter.chapter_title %></p>
+<%= link_to "詳細ページへ", story_chapter_path(chapter.story, chapter) %>
+<%= link_to "編集", edit_story_chapter_path(chapter.story, chapter) %>
+<%= link_to "削除", story_chapter_path(chapter.story, chapter), method: :delete, data: { confirm: "#{chapter.chapter_title}を削除しますか？" } %>
+<p>執筆状況：<%= chapter.writing %></p>
+<hr>
+<% end %>
