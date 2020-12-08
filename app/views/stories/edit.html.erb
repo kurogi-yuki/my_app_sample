@@ -1,0 +1,13 @@
+<%= form_with model: @story, local: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true, autofocus: true, placeholder: "物語のタイトル" %>
+  <%= f.label :outline %>
+  <%= f.text_field :outline, required: true, autofocus: true, placeholder: "あらすじ" %>
+  <%= f.label :genre, "冒険" %>
+  <%= f.radio_button :genre, "冒険" %>
+  <%= f.label :genre, "恋愛" %>
+  <%= f.radio_button :genre, "恋愛" %>
+  <%= f.label :genre, "ミステリ" %>
+  <%= f.radio_button :genre, "ミステリ" %>
+  <%= f.submit "作成" %>
+<% end %>
