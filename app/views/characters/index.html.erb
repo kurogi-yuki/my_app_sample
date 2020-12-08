@@ -1,0 +1,14 @@
+<% if @characters.first %>
+<hr>
+  <h1><%= @characters.first.story_title %></h1>
+<% end %>
+<hr>
+<%= link_to "キャラクター作成", new_story_character_path %>
+<hr>
+<% @characters.each do |character| %>
+<p>キャラ名：<%= character.character_name %></p>
+<%= link_to "詳細", story_character_path(character.story, character) %>
+<%= link_to "編集", edit_story_character_path(character.story, character) %>
+<%= link_to "削除", story_character_path(character.story, character), method: :delete, data: { confirm: "キャラクター名『#{character.character_name}』のデータを削除しますか？" } %>
+<% end %>
+<hr>

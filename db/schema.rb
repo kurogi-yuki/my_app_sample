@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_085143) do
+ActiveRecord::Schema.define(version: 2020_12_08_092511) do
 
   create_table "chapters", force: :cascade do |t|
     t.string "chapter_title", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_12_08_085143) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["story_id"], name: "index_chapters_on_story_id"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "character_name", null: false
+    t.integer "age", null: false
+    t.string "gender", null: false
+    t.integer "story_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["story_id"], name: "index_characters_on_story_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -46,5 +56,6 @@ ActiveRecord::Schema.define(version: 2020_12_08_085143) do
   end
 
   add_foreign_key "chapters", "stories"
+  add_foreign_key "characters", "stories"
   add_foreign_key "stories", "users"
 end

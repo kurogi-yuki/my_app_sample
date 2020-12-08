@@ -5,5 +5,10 @@
     <%= f.label :writing, "執筆状況" %>
     <%= f.select :writing, [["設定中", "設定中"],["清書中", "清書中"],["編集中", "編集中"],["完了済", "完了済"]], include_blank: '選択してください' %>
   </div>
+  <h2>この章に登場するキャラクターを選択してください</h2>
+  <% @chapter.story_characters.each do |character| %>
+    <p><%= f.check_box :story_characters %>
+    <%= f.label :story_characters, "#{character.character_name}" %></p>
+  <% end %>
   <%= f.submit "作成" %>
 <% end %>

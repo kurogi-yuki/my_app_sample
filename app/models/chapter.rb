@@ -7,4 +7,8 @@ class Chapter < ApplicationRecord
   def story_title
     story.title
   end
+
+  def story_characters
+    story.characters
+  end
 end
